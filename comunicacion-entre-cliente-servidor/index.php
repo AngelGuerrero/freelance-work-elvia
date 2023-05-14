@@ -117,11 +117,11 @@
     $message = '';
 
     if ($edad <= 30) {
-      $message .= '!Qué tal ' . $nombre . ', eres joven!';
+      $message .= '¡Qué tal ' . $nombre . ', eres joven!';
     } else if ($edad >= 30 && $edad < 50) {
-      $message .= '!Hola ' . $nombre . ', ya eres un adulto!';
+      $message .= '¡Hola ' . $nombre . ', ya eres un adulto!';
     } else {
-      $message .= '!Bienvenido ' . $nombre . ', eres un adulto mayor!';
+      $message .= '¡Bienvenido ' . $nombre . ', eres un adulto mayor!';
     }
     echo '<h1 class="container__title--result">' . $message . '</h1>'
       ?>
