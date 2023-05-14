@@ -1,0 +1,67 @@
+<main class="container">
+  <form
+    action="index.php"
+    class="form"
+    method="post">
+    <h2 class="container__title">Selecciona los datos para ver el resultado</h2>
+
+    <!-- Genero -->
+    <div class="form__control">
+      <label
+        for="genero"
+        class="form__label"
+        >Género</label
+      >
+      <select
+        class="form__select"
+        title="genero"
+        name="genero"
+        required>
+        <option value="h">Hombre</option>
+        <option value="m">Mujer</option>
+        <option value="x">Unisex</option>
+      </select>
+    </div>
+
+    <!-- Categorías -->
+    <div class="form__control">
+      <label
+        for="categorias"
+        class="form__label"
+        >Categorías:</label
+      >
+      <select
+        class="form__select"
+        title="categorias"
+        name="categorias[]"
+        multiple
+        required>
+        <option value="ropa">Ropa</option>
+        <option value="calzado">Calzado</option>
+        <option value="relojes">Relojes</option>
+        <option value="perfumes">Perfumes</option>
+      </select>
+    </div>
+
+    <div class="form__control">
+      <label
+        for="email"
+        class="form__label"
+        >Email:</label
+      >
+      <input
+        placeholder="Email"
+        type="email"
+        class="form__input"
+        name="email"
+        required />
+    </div>
+
+    <div class="form__control--submit">
+      <input
+        type="submit"
+        class="form__submit"
+        value="Enviar" />
+    </div>
+  </form>
+</main>
