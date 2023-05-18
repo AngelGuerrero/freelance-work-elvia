@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  -mozilla-backdrop-filter: blur(3px);
+  -moz-backdrop-filter: blur(3px);
 
   display: grid;
   grid-template-areas:
