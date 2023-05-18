@@ -83,74 +83,36 @@ if (!empty($session_user_data)) {
           </div>
         </div>
 
-        <!-- Mostrar los usuarios guardados en la sesión -->
-        <?php if (is_array($session_user_data)): ?>
-          <?php foreach ($session_user_data[0] as $user_data): ?>
-            <div class="table__columns">
-              <div class="table__column">
-                <p class="table__column--text">
-                  <?php echo $user_data['email']; ?>
-                </p>
-              </div>
-              <div class="table__column">
-                <p class="table__column--text">
-                  <?php echo $user_data['password']; ?>
-                </p>
-              </div>
-              <div class="table__column">
-                <p class="table__column--text">
-                  <?php echo $user_data['birthday']; ?>
-                </p>
-              </div>
-              <div class="table__column">
-                <p class="table__column--text">
-                  <?php if (is_array($user_data['colors'])): ?>
-                    <?php foreach ($user_data['colors'] as $color): ?>
-                      <span>
-                        <?php echo $color; ?>
-                      </span>
-                    <?php endforeach; ?>
-                  <?php else: ?>
-                    <span>
-                      <?php echo $user_data['colors']; ?>
-                    </span>
-                  <?php endif; ?>
-                </p>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        <?php else: ?>
-          <div class="table__columns">
-            <div class="table__column">
-              <p class="table__column--text">
-                <?php echo $session_user_data['email']; ?>
-              </p>
-            </div>
-            <div class="table__column">
-              <p class="table__column--text">
-                <?php echo $session_user_data['password']; ?>
-              </p>
-            </div>
-            <div class="table__column">
-              <p class="table__column--text">
-                <?php echo $session_user_data['birthday']; ?>
-              </p>
-            </div>
-            <div class="table__column">
-              <p class="table__column--text">
-                <?php if (is_array($session_user_data['colors'])): ?>
-                  <span>
-                    <?php echo implode(', ', $session_user_data['colors']); ?>
-                  </span>
-                <?php else: ?>
-                  <span>
-                    <?php echo $session_user_data['colors']; ?>
-                  </span>
-                <?php endif; ?>
-              </p>
-            </div>
+        <div class="table__columns">
+          <div class="table__column">
+            <p class="table__column--text">
+              <?php echo $session_user_data['email']; ?>
+            </p>
           </div>
-        <?php endif; ?>
+          <div class="table__column">
+            <p class="table__column--text">
+              <?php echo $session_user_data['password']; ?>
+            </p>
+          </div>
+          <div class="table__column">
+            <p class="table__column--text">
+              <?php echo $session_user_data['birthday']; ?>
+            </p>
+          </div>
+          <div class="table__column">
+            <p class="table__column--text">
+              <?php if (is_array($session_user_data['colors'])): ?>
+                <span>
+                  <?php echo implode(', ', $session_user_data['colors']); ?>
+                </span>
+              <?php else: ?>
+                <span>
+                  <?php echo $session_user_data['colors']; ?>
+                </span>
+              <?php endif; ?>
+            </p>
+          </div>
+        </div>
       </div>
     </main>
 
