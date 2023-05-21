@@ -1,0 +1,82 @@
+
+
+@media screen and (min-width: 800px) {
+  .contenedor {
+     /*  coloca aquí tu código  */   
+  }
+}
+@media screen and (max-width: 800px) {
+  .contenedor {
+    /*  coloca aquí tu código  */
+  }  
+}
+
+header{
+    /*  coloca aquí tu código  */
+} 
+main{
+    /*  coloca aquí tu código  */
+}
+nav{
+    /*  coloca aquí tu código  */
+}
+aside {
+  /*  coloca aquí tu código  */
+}
+footer{
+    /*  coloca aquí tu código  */
+}
+
+/*  */
+.contenedor > * {
+  padding: 20px;
+}
+@media screen and (min-width: 800px) {
+  .contenedor {
+    color: #989C94;
+    font-family: helvetica, arial, sans-serif;
+  }
+}
+@media screen and (max-width: 800px) {
+  .contenedor {
+    color: #989C94;
+    font-family: helvetica, arial, sans-serif;
+  }
+  aside {
+
+  }
+}
+  header {
+    color: white;
+    background: #989C94;
+  } 
+  main {
+    background: #E6E49F;
+    color: #25291C;
+  }
+  nav {
+    color: #25291C;
+    background: #E3E7D0;
+  }
+  aside {
+    background: #BDC2BF;
+    color: #25291C;
+  }
+  footer {
+    color: white;
+    background: #25291C;
+  }
+/*  */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+h1, h2 {
+  text-transform: uppercase;
+}
