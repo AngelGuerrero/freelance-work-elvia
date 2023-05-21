@@ -1,82 +1,91 @@
-
-
-@media screen and (min-width: 800px) {
-  .contenedor {
-     /*  coloca aquí tu código  */   
-  }
+.contenedor {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
 }
-@media screen and (max-width: 800px) {
-  .contenedor {
-    /*  coloca aquí tu código  */
-  }  
-}
-
-header{
-    /*  coloca aquí tu código  */
-} 
-main{
-    /*  coloca aquí tu código  */
-}
-nav{
-    /*  coloca aquí tu código  */
-}
-aside {
+.header {
   /*  coloca aquí tu código  */
+  grid-area: header;
 }
-footer{
-    /*  coloca aquí tu código  */
+.nav {
+  /*  coloca aquí tu código  */
+  grid-area: nav;
+}
+.main {
+  /*  coloca aquí tu código  */
+  grid-area: main;
+}
+.aside {
+  /*  coloca aquí tu código  */
+  grid-area: aside;
+}
+.footer {
+  /*  coloca aquí tu código  */
+  grid-area: footer;
 }
 
 /*  */
 .contenedor > * {
   padding: 20px;
 }
-@media screen and (min-width: 800px) {
-  .contenedor {
-    color: #989C94;
-    font-family: helvetica, arial, sans-serif;
-  }
+.contenedor {
+  color: #989c94;
+  font-family: helvetica, arial, sans-serif;
 }
-@media screen and (max-width: 800px) {
-  .contenedor {
-    color: #989C94;
-    font-family: helvetica, arial, sans-serif;
-  }
-  aside {
-
-  }
+header {
+  color: white;
+  background: #989c94;
 }
-  header {
-    color: white;
-    background: #989C94;
-  } 
-  main {
-    background: #E6E49F;
-    color: #25291C;
-  }
-  nav {
-    color: #25291C;
-    background: #E3E7D0;
-  }
-  aside {
-    background: #BDC2BF;
-    color: #25291C;
-  }
-  footer {
-    color: white;
-    background: #25291C;
-  }
+main {
+  background: #e6e49f;
+  color: #25291c;
+}
+nav {
+  color: #25291c;
+  background: #e3e7d0;
+}
+aside {
+  background: #bdc2bf;
+  color: #25291c;
+}
+/* main, */
+/* nav, */
+/* aside { */
+/* } */
+footer {
+  color: white;
+  background: #25291c;
+}
 /*  */
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 body {
   padding: 0;
   margin: 0;
 }
-h1, h2 {
+h1,
+h2 {
   text-transform: uppercase;
+}
+
+@media (max-width: 965px) {
+  .contenedor {
+    grid-template-areas:
+      "header header header"
+      "nav main main"
+      "nav aside aside"
+      "nav aside aside"
+      "footer footer footer";
+  }
 }
