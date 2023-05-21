@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Liberar memoria
   imagedestroy($imagen);
 
-  // Redireccionar al archivo de imagen creado
+  // Re-direccionar al archivo de imagen creado
   header('Location: imagen.png');
   exit;
 }
