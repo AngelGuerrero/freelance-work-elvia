@@ -35,11 +35,11 @@ $routes->get('/', 'Home::index');
 // Muestra el listado de usuarios
 $routes->get('/users', 'UsersController::index');
 // Muestra el formulario para un nuevo usuario
-$routes->get('/users/new', 'UsersController::index');
+$routes->get('/users/new', 'UsersController::new');
 // Crea un nuevo usuario
 $routes->post('/users/create', 'UsersController::create');
 // Elimina un usuario
-$routes->get('/users/delete/(:num)', 'UsersController::delete/$1');
+$routes->delete('/users/delete/(:num)', 'UsersController::delete/$1');
 
 /*
  * --------------------------------------------------------------------

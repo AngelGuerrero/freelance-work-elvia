@@ -14,7 +14,7 @@ class UsersController extends BaseController
         $userModel = new UserModel();
         $data['users'] = $userModel->findAll();
 
-        return view('user_list');
+        return view('user_list', $data);
     }
 
     /** 
@@ -22,7 +22,7 @@ class UsersController extends BaseController
      */
     public function new()
     {
-        # code...
+        return view('create_user_form');
     }
 
     /**
@@ -35,7 +35,17 @@ class UsersController extends BaseController
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        return view('welcome_message');
+        // Crear un nuevo usuario
+        $userModel = new UserModel();
+        $userModel->insert([
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+        ]);
+
+        return view('success', [
+            'message' => 'Usuario creado correctamente',
+        ]);
     }
 
     /**
@@ -43,6 +53,12 @@ class UsersController extends BaseController
      */
     public function delete($id = null)
     {
-        # code...
+        // Eliminar el usuario
+        $userModel = new UserModel();
+        $userModel->delete($id);
+
+        return view('success', [
+            'message' => 'Usuario eliminado correctamente',
+        ]);
     }
 }

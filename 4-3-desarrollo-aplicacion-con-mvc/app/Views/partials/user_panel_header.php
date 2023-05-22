@@ -508,6 +508,19 @@
       margin-bottom: 2rem;
       margin-left: 1rem;
     }
+
+    .container {
+      width: 800px;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .users__table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 

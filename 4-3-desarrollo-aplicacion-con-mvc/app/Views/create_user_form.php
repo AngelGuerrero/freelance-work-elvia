@@ -7,19 +7,19 @@
     <!-- name -->
     <div class="form__control">
       <label for="name" class="form__label">Nombre:</label>
-      <input placeholder="Nombre" type="name" class="form__input" name="name" required value="name" />
+      <input placeholder="Nombre" type="name" class="form__input" name="name" required />
     </div>
 
     <!-- Email -->
     <div class="form__control">
       <label for="email" class="form__label">Email:</label>
-      <input placeholder="Email" type="email" class="form__input" name="email" required value="email@ejemplo.com" />
+      <input placeholder="Email" type="email" class="form__input" name="email" required />
     </div>
 
     <!-- Password -->
     <div class="form__control">
       <label for="password" class="form__label">Contraseña:</label>
-      <input placeholder="Email" type="password" class="form__input" name="password" required value="password" />
+      <input placeholder="Email" type="password" class="form__input" name="password" required />
     </div>
 
     <!-- Submit -->
