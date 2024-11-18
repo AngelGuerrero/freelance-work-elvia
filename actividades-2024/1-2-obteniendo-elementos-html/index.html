@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Registro de Producto</title>
+    <style>
+      textarea:focus,
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .formulario__contenedor {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      h1 {
+        text-align: center;
+      }
+      .formulario__contenedor label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .formulario__contenedor input[type='text'],
+      .formulario__contenedor textarea,
+      .formulario__contenedor select {
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+      .formulario__contenedor button {
+        display: block;
+        width: 100%;
+        background-color: black;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      /* estilos para validación de formulario */
+      .error {
+        border: 2px solid red;
+      }
+      .valid {
+        border: 2px solid green;
+      }
+      label.error-label {
+        color: red;
+      }
+      label.valid-label {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="formulario__contenedor">
+      <h1>Registro de Producto</h1>
+      <form id="registerForm">
+        <!-- Text Fields -->
+        <label for="productName">Nombre del Producto:</label>
+        <input
+          type="text"
+          id="productName"
+          name="productName"
+        />
+        <br />
+        <br />
+
+        <label for="productCode">Código del Producto:</label>
+        <input
+          type="text"
+          id="productCode"
+          name="productCode"
+        />
+        <br />
+        <br />
+
+        <label for="price">Precio:</label>
+        <input
+          type="text"
+          id="price"
+          name="price"
+        />
+        <br />
+        <br />
+
+        <!-- Text Area -->
+        <label for="description">Descripción:</label>
+        <br />
+        <textarea
+          id="description"
+          name="description"
+          rows="4"
+          cols="30"
+        ></textarea>
+        <br />
+        <br />
+
+        <!-- Selector -->
+        <label for="category">Categoría:</label>
+        <select
+          id="category"
+          name="category"
+        >
+          <option value="">Selecciona una opción</option>
+          <option value="electronics">Electrónica</option>
+          <option value="fashion">Moda</option>
+          <option value="home">Hogar</option>
+        </select>
+        <br />
+        <br />
+
+        <!-- Checkbox -->
+        <label>Características:</label>
+        <br />
+        <input
+          type="checkbox"
+          name="features"
+          placeholder="features"
+          value="durable"
+        />
+        Durable
+        <br />
+        <input
+          type="checkbox"
+          name="eco"
+          placeholder="eco"
+          value="eco-friendly"
+        />
+        Ecológico
+        <br />
+        <input
+          type="checkbox"
+          name="portable"
+          placeholder="portable"
+          value="portable"
+        />
+        Portátil
+        <br />
+        <input
+          type="checkbox"
+          name="premium"
+          placeholder="premium"
+          value="premium"
+        />
+        Premium
+        <br />
+        <input
+          type="checkbox"
+          name="affordable"
+          placeholder="affordable"
+          value="affordable"
+        />
+        Accesible
+        <br />
+        <br />
+
+        <!-- Button -->
+        <button
+          type="button"
+          id="validateButton"
+        >
+          Validar Formulario
+        </button>
+      </form>
+
+      <script>
+        document.getElementById('validateButton').addEventListener('click', () => {
+          // Obtener campos
+          const productName = document.getElementById('productName');
+          const productCode = document.getElementById('productCode');
+          const price = document.getElementById('price');
+          const description = document.getElementById('description');
+          const category = document.getElementById('category');
+          const features = document.querySelectorAll('input[name="features"]:checked');
+
+          // Validar campos
+          validateField(productName, productName.value.trim() !== '');
+          validateField(productCode, productCode.value.trim() !== '');
+          validateField(price, /^[0-9]+(\.[0-9]{1,2})?$/.test(price.value.trim())); // Precio válido
+          validateField(description, description.value.trim().length >= 10); // Mínimo 10 caracteres
+          validateField(category, category.value !== '');
+
+          // Validar checkbox (al menos 1 seleccionado)
+          const featureLabel = document.querySelector('label[for="features"]');
+          if (features.length > 0) {
+            featureLabel.classList.add('valid-label');
+            featureLabel.classList.remove('error-label');
+          } else {
+            featureLabel.classList.add('error-label');
+            featureLabel.classList.remove('valid-label');
+          }
+        });
+
+        // Función de validación
+        function validateField(field, isValid) {
+          const label = document.querySelector(`label[for="${field.id}"]`);
+          if (isValid) {
+            field.classList.add('valid');
+            field.classList.remove('error');
+            label.classList.add('valid-label');
+            label.classList.remove('error-label');
+          } else {
+            field.classList.add('error');
+            field.classList.remove('valid');
+            label.classList.add('error-label');
+            label.classList.remove('valid-label');
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>
