@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Registro de Producto</title>
+    <style>
+      textarea:focus,
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        padding: 20px;
+      }
+      .formulario__contenedor {
+        width: 35%;
+        max-width: 300px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 0 10px;
+        border-radius: 5px;
+      }
+      h1 {
+        font-size: 19px;
+      }
+      .formulario__contenedor label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form__group {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .form__group_checkbox {
+        display: flex;
+        gap: 5px;
+        padding: 5px;
+      }
+      .form__group label {
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .formulario__contenedor input[type='text'],
+      .formulario__contenedor textarea,
+      .formulario__contenedor select {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      .formulario__contenedor button {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      /* estilos para validación de formulario */
+      .error {
+        border: 2px solid red;
+      }
+      .valid {
+        border: 2px solid green;
+      }
+      label.error-label {
+        color: red;
+      }
+      label.valid-label {
+        color: green;
+      }
+      /* estilos para el listado del catálogo */
+      .catalogo__contenedor {
+        flex-grow: 1;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 0 10px;
+        border-radius: 5px;
+      }
+      .catalogo__contenedor h1 {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+      }
+      .product-item {
+        font-size: small;
+        border-bottom: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      /* estilos para los botones de acciones */
+      .catalogo__contenedor_options {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .delete__button {
+        color: white;
+        background-color: red;
+        padding: 10px 20px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .delete__button:hover {
+        background-color: darkred;
+      }
+      .delete__button:active {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="formulario__contenedor">
+      <h1>Registro de Producto</h1>
+      <form id="registerForm">
+        <!-- Text Fields -->
+        <div class="form__group">
+          <label for="productName">Nombre del Producto:</label>
+          <input
+            type="text"
+            id="productName"
+            name="productName"
+          />
+        </div>
+
+        <div class="form__group">
+          <label for="productCode">Código del Producto:</label>
+          <input
+            type="text"
+            id="productCode"
+            name="productCode"
+          />
+        </div>
+
+        <div class="form__group">
+          <label for="price">Precio:</label>
+          <input
+            type="text"
+            id="price"
+            name="price"
+          />
+        </div>
+
+        <div class="form__group">
+          <label for="description">Descripción:</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            cols="30"
+          ></textarea>
+        </div>
+
+        <div class="form__group">
+          <label for="category">Categoría:</label>
+          <select
+            id="category"
+            name="category"
+          >
+            <option value="">Selecciona una opción</option>
+            <option value="electronics">Electrónica</option>
+            <option value="fashion">Moda</option>
+            <option value="home">Hogar</option>
+          </select>
+        </div>
+
+        <!-- Checkbox -->
+        <div id="features">
+          <label>Características:</label>
+          <div class="form__group_checkbox">
+            <input
+              type="checkbox"
+              name="features"
+              placeholder="durable"
+              value="durable"
+            />
+            <span>Durable</span>
+          </div>
+
+          <div class="form__group_checkbox">
+            <input
+              type="checkbox"
+              name="features"
+              placeholder="eco"
+              value="eco-friendly"
+            />
+            <span>Ecológico</span>
+          </div>
+
+          <div class="form__group_checkbox">
+            <input
+              type="checkbox"
+              name="features"
+              placeholder="portable"
+              value="portable"
+            />
+            <span>Portátil</span>
+          </div>
+
+          <div class="form__group_checkbox">
+            <input
+              type="checkbox"
+              name="features"
+              placeholder="premium"
+              value="premium"
+            />
+            <span>Premium</span>
+          </div>
+
+          <div class="form__group_checkbox">
+            <input
+              type="checkbox"
+              name="features"
+              placeholder="affordable"
+              value="affordable"
+            />
+            <span>Accesible</span>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form__group">
+          <button
+            type="button"
+            id="addProduct"
+          >
+            Agregar producto
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="catalogo__contenedor">
+      <h1>Catálogo de Productos</h1>
+      <div class="dev catalogo__contenedor_options">
+        <button
+          name="deleteAll"
+          id="deleteAll"
+          class="delete__button"
+        >
+          Eliminar todo
+        </button>
+      </div>
+
+      <div id="productCatalog">
+        <div class="product-item">
+          <h3>Producto 1</h3>
+          <p>
+            <strong>Precio:</strong>
+            $100
+          </p>
+          <p>
+            <strong>Descripción:</strong>
+            Producto de ejemplo
+          </p>
+          <p>
+            <strong>Categoría:</strong>
+            Electrónica
+          </p>
+          <p>
+            <strong>Características:</strong>
+            Durable
+          </p>
+          <button
+            name="deleteProduct"
+            class="delete__button"
+          >
+            Eliminar producto
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('addProduct').addEventListener('click', () => {
+        const productName = document.getElementById('productName');
+        const productCode = document.getElementById('productCode');
+        const price = document.getElementById('price');
+        const description = document.getElementById('description');
+        const category = document.getElementById('category');
+        const features = document.querySelectorAll('input[name="features"]:checked');
+
+        // Validar campos
+        if (
+          !validateField(productName) ||
+          !validateField(productCode) ||
+          !validatePrice(price) ||
+          !validateField(description) ||
+          !validateCategory(category) ||
+          !validateFeatures(features)
+        ) {
+          return alert('Por favor, complete todos los campos correctamente.');
+        }
+
+        // Crear el elemento de producto
+        const productCatalog = document.getElementById('productCatalog');
+        const productItem = document.createElement('div');
+        productItem.classList.add('product-item');
+
+        // Insertar contenido
+        const featuresList = Array.from(features)
+          .map((feature) => feature.value)
+          .join(', ');
+        productItem.innerHTML = `
+              <h3>${productName.value} (${productCode.value})</h3>
+              <p><strong>Precio:</strong> $${price.value}</p>
+              <p><strong>Descripción:</strong> ${description.value}</p>
+              <p><strong>Categoría:</strong> ${category.options[category.selectedIndex].text}</p>
+              <p><strong>Características:</strong> ${featuresList}</p>
+              <button name="deleteProduct" class="delete__button">Eliminar producto</button>
+          `;
+
+        // Agregar el producto al catálogo
+        productCatalog.appendChild(productItem);
+
+        // Limpiar el formulario
+        document.getElementById('registerForm').reset();
+      });
+
+      /* Eventos */
+
+      // Eliminar todos los productos
+      document.getElementById('deleteAll').addEventListener('click', () => {
+        const productCatalog = document.getElementById('productCatalog');
+        if (productCatalog) {
+          productCatalog.innerHTML = '';
+        }
+      });
+
+      // Eliminar un producto
+      document.getElementById('productCatalog').addEventListener('click', (event) => {
+        if (event.target.name === 'deleteProduct') {
+          event.target.parentElement.remove();
+        }
+      });
+
+      /* Validaciones */
+      function validateField(field) {
+        if (field.value.trim() === '') {
+          field.style.border = '2px solid red';
+          return false;
+        } else {
+          field.style.border = '2px solid green';
+          return true;
+        }
+      }
+
+      function validatePrice(field) {
+        const isValid = /^[0-9]+(\.[0-9]{1,2})?$/.test(field.value.trim());
+        field.style.border = isValid ? '2px solid green' : '2px solid red';
+        return isValid;
+      }
+
+      function validateCategory(field) {
+        const isValid = field.value !== '';
+        field.style.border = isValid ? '2px solid green' : '2px solid red';
+        return isValid;
+      }
+
+      function validateFeatures(features) {
+        const isValid = features.length > 0;
+        const checkboxesContainer = document.getElementById('features');
+        checkboxesContainer.style.border = isValid ? '2px solid green' : '2px solid red';
+        return isValid;
+      }
+    </script>
+  </body>
+</html>
