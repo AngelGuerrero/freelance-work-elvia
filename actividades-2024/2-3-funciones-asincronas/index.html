@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>2.3 Funciones Asíncronas</title>
+    <style>
+      .dev {
+        border: 1px solid tomato;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        height: 100vh;
+      }
+      .container {
+        max-width: 600px;
+      }
+      .container h1 {
+        text-align: center;
+      }
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0;
+      }
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #output {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Funciones Asíncronas</h1>
+
+      <div class="buttons">
+        <button id="callbackBtn">Ejecutar con Callback</button>
+        <button id="promiseBtn">Ejecutar con Promise</button>
+        <button id="asyncAwaitBtn">Ejecutar con async/await</button>
+      </div>
+
+      <div id="output">Resultados aquí...</div>
+
+      <script>
+        // Simular una tarea asíncrona con setTimeout
+        const asyncFunction = (message, delay, callback) => {
+          setTimeout(() => {
+            callback(message);
+          }, delay);
+        };
+
+        // Callback
+        document.getElementById('callbackBtn').addEventListener('click', () => {
+          document.getElementById('output').innerText = 'Cargando función Callback...';
+          asyncFunction('Tarea completada con Callback', 2000, (result) => {
+            document.getElementById('output').innerText = result;
+          });
+        });
+
+        // Promise
+        const asyncPromiseFunction = (message, delay) => {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve(message);
+            }, delay);
+          });
+        };
+
+        document.getElementById('promiseBtn').addEventListener('click', () => {
+          document.getElementById('output').innerText = 'Cargando función Promise...';
+          asyncPromiseFunction('Tarea completada con Promise', 2000)
+            .then((result) => {
+              document.getElementById('output').innerText = result;
+            })
+            .catch((error) => {
+              document.getElementById('output').innerText = error;
+            });
+        });
+
+        // async/await
+        document.getElementById('asyncAwaitBtn').addEventListener('click', async () => {
+          try {
+            document.getElementById('output').innerText = 'Cargando función async/await...';
+            const result = await asyncPromiseFunction('Tarea completada con async/await', 2000);
+            document.getElementById('output').innerText = result;
+          } catch (error) {
+            document.getElementById('output').innerText = error;
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>
