@@ -1,0 +1,20 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8000 -t /var/www/html
+    environment:
+      - PHP_DISPLAY_ERRORS=On
+    networks:
+      - php_network
+
+networks:
+  php_network:
+    driver: bridge
