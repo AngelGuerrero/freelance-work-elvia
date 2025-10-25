@@ -1,6 +1,6 @@
 # Portfolio de Proyectos de Programación Web
 
-Este repositorio contiene una colección de proyectos desarrollados para el aprendizaje y práctica de tecnologías web, incluyendo PHP, HTML, CSS, JavaScript y frameworks como CodeIgniter.
+Este repositorio contiene una colección de proyectos desarrollados para cliente universitario y prácticas de tecnologías web, incluyendo PHP, HTML, CSS, JavaScript y frameworks como CodeIgniter.
 
 ## 📋 Tabla de Contenidos
 
@@ -473,4 +473,4 @@ composer install
 
 ---
 
-*Este portfolio demuestra el progreso en el aprendizaje de tecnologías web full-stack, desde conceptos básicos hasta aplicaciones complejas con frameworks modernos.*
+*Este portfolio demuestra el progreso en la implementación de tecnologías web full-stack, desde conceptos básicos hasta aplicaciones complejas con frameworks modernos.*
