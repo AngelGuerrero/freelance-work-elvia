@@ -33,6 +33,10 @@ Sistema completo de autenticación de usuarios con funcionalidades avanzadas de 
 **Vistas disponibles:**
 - ![Login](2-3-actividad-integradora/assets/img/login.jpg) *Pantalla de inicio de sesión*
 
+**Archivos de datos:**
+- `users.json` - Base de datos de usuarios en formato JSON
+- `session_user_data.json` - Datos de sesión persistente
+
 ---
 
 ### 2. Sistema Avanzado con Generación de Documentos (3-3-archivos-formato-word-excel-pdf)
@@ -54,6 +58,12 @@ Sistema profesional con Docker, generación de documentos PDF, Word, Excel e im�
 **Vistas disponibles:**
 - ![Login](3-3-archivos-formato-word-excel-pdf/login.jpeg) *Pantalla de login*
 - ![Panel](3-3-archivos-formato-word-excel-pdf/panel.jpeg) *Panel de administración*
+- ![Login Assets](3-3-archivos-formato-word-excel-pdf/assets/img/login.jpg) *Imagen de login en assets*
+
+**Archivos de datos:**
+- `users.json` - Base de datos de usuarios en formato JSON
+- `session_user_data.json` - Datos de sesión persistente
+- `files/[email]/` - Directorios personales de usuarios con documentos generados
 
 **Para ejecutar:**
 ```bash
@@ -67,7 +77,7 @@ docker compose up --build
 ### 3. Actividad Integradora - Respuestas PHP (3-4-actividad-integradora-respuestas-php)
 **Ubicación:** `3-4-actividad-integradora-respuestas-php/`
 
-Proyecto de integración que combina múltiples funcionalidades PHP con generación de documentos.
+Proyecto de integración que combina múltiples funcionalidades PHP con generación de documentos. **Ahora con soporte Docker**.
 
 **Características:**
 - ✅ Sistema de login con JSON
@@ -75,8 +85,25 @@ Proyecto de integración que combina múltiples funcionalidades PHP con generaci
 - ✅ Funciones personalizadas para conversión de formatos
 - ✅ Gestión de sesiones y cookies
 - ✅ Interfaz de usuario intuitiva
+- ✅ **Contenedor Docker para desarrollo**
+- ✅ **Composer para gestión de dependencias**
 
-**Tecnologías:** PHP, JSON, TCPDF, GD Library (imágenes)
+**Tecnologías:** PHP, JSON, TCPDF, GD Library (imágenes), Docker, Composer
+
+**Vistas disponibles:**
+- ![Login](3-4-actividad-integradora-respuestas-php/assets/img/login.jpg) *Pantalla de inicio de sesión*
+
+**Archivos adicionales:**
+- `Roboto-Regular.ttf` - Fuente para generación de imágenes
+- `common.php` - Funciones compartidas para todos los módulos
+- `create_word_excel_pdf.php` - Módulo de generación de documentos
+
+**Para ejecutar:**
+```bash
+cd 3-4-actividad-integradora-respuestas-php/
+docker compose up --build
+# Acceder a: http://localhost:8000
+```
 
 ---
 
@@ -95,6 +122,13 @@ Aplicación completa siguiendo el patrón Modelo-Vista-Controlador con CodeIgnit
 
 **Tecnologías:** CodeIgniter 4, PHP, MySQL, PHPUnit, Composer
 
+**Archivos adicionales:**
+- `public/favicon.ico` - Icono del sitio web
+- `app/Config/` - Configuraciones del framework
+- `app/Controllers/` - Controladores de la aplicación
+- `app/Models/` - Modelos de datos
+- `app/Views/` - Vistas y plantillas
+
 ---
 
 ### 5. Gestión de Sesiones y Cookies (4-4-manejo-usuario-sesiones-y-cookies)
@@ -110,6 +144,12 @@ Aplicación enfocada en la gestión avanzada de sesiones y cookies con CodeIgnit
 - ✅ Seguridad en la gestión de estado
 
 **Tecnologías:** CodeIgniter 4, PHP, Sessions, Cookies
+
+**Archivos adicionales:**
+- `public/favicon.ico` - Icono del sitio web
+- `app/Controllers/` - Controladores con lógica de sesiones
+- `app/Views/` - Vistas con gestión de estado
+- `writable/session/` - Archivos de sesión del servidor
 
 ---
 
@@ -127,6 +167,13 @@ Proyecto integrador que demuestra el uso completo del patrón MVC.
 
 **Tecnologías:** CodeIgniter 4, PHP, MVC Pattern
 
+**Archivos adicionales:**
+- `public/favicon.ico` - Icono del sitio web
+- `public/css/login.css` - Estilos específicos para login
+- `app/Controllers/` - Controladores con lógica de negocio
+- `app/Views/` - Vistas con layouts responsive
+- `writable/session/` - Gestión de sesiones del servidor
+
 ---
 
 ## 🎨 Proyectos Frontend
@@ -143,6 +190,9 @@ Aplicación para manejo de formularios y estructuras de datos en PHP.
 - ✅ Retroalimentación visual al usuario
 
 **Tecnologías:** PHP, HTML, CSS
+
+**Vistas disponibles:**
+- ![Accesorios](formularios-y-estructuras-de-datos/assets/img/accesorios.jpg) *Imagen de productos/accesorios*
 
 ---
 
@@ -191,6 +241,9 @@ Proyecto educativo sobre manejo de estructuras de datos en PHP.
 - ✅ Visualización de resultados
 
 **Tecnologías:** PHP, HTML, CSS
+
+**Vistas disponibles:**
+- ![Login](estructuras-y-arreglos-en-php/assets/img/login.jpg) *Pantalla de login*
 
 ---
 
@@ -307,7 +360,12 @@ cd freelance-work-elvia
 
 2. **Para proyectos con Docker:**
 ```bash
+# Proyecto 3-3 - Sistema avanzado con documentos
 cd 3-3-archivos-formato-word-excel-pdf/
+docker compose up --build
+
+# Proyecto 3-4 - Actividad integradora con Docker
+cd 3-4-actividad-integradora-respuestas-php/
 docker compose up --build
 ```
 
@@ -333,7 +391,7 @@ composer install
 - **CodeIgniter 4** - Framework MVC
 - **Composer** - Gestión de dependencias
 - **TCPDF** - Generación de PDFs
-- **Docker** - Containerización
+- **Docker** - Containerización (2 proyectos)
 
 ### Frontend
 - **HTML5** - Estructura semántica
@@ -347,9 +405,39 @@ composer install
 - **Cookies** (persistencia de sesión)
 
 ### Herramientas de Desarrollo
-- **Docker & Docker Compose**
+- **Docker & Docker Compose** (2 proyectos con soporte)
 - **PHPUnit** (testing)
 - **Git** (control de versiones)
+- **Composer** (gestión de dependencias PHP)
+
+---
+
+## 🖼️ Recursos Visuales Disponibles
+
+### Imágenes de Login y Panel
+- **2-3-actividad-integradora**: `assets/img/login.jpg`
+- **3-3-archivos-formato-word-excel-pdf**: `login.jpeg`, `panel.jpeg`, `assets/img/login.jpg`
+- **3-4-actividad-integradora-respuestas-php**: `assets/img/login.jpg`
+- **archivos-metadatos**: `assets/img/login.jpg`
+- **configurando-y-operando-inicio-sesion**: `assets/img/login.jpg`
+- **estructuras-y-arreglos-en-php**: `assets/img/login.jpg`
+- **formularios-y-estructuras-de-datos**: `assets/img/accesorios.jpg`
+- **sesiones-y-cookies**: `assets/img/login.jpg`
+
+### Iconos y Favicons
+- **4-3-desarrollo-aplicacion-con-mvc**: `public/favicon.ico`
+- **4-4-manejo-usuario-sesiones-y-cookies**: `public/favicon.ico`
+- **4-5-actividad-integradora-modelo-vista-controlador**: `public/favicon.ico`
+
+### Recursos para Generación de Documentos
+- **3-4-actividad-integradora-respuestas-php**: `Roboto-Regular.ttf` (fuente para imágenes)
+- **archivos-de-imagen**: `Roboto-Regular.ttf` (fuente para procesamiento)
+- **TCPDF Examples**: Múltiples imágenes de demostración en `vendor/tecnickcom/tcpdf/examples/images/`
+
+### Archivos de Configuración
+- **users.json**: Base de datos de usuarios (proyectos 3-3, 3-4)
+- **session_user_data.json**: Datos de sesión persistente
+- **composer.json/composer.lock**: Dependencias PHP (proyectos con TCPDF)
 
 ---
 
@@ -364,6 +452,8 @@ composer install
 - Manipulación avanzada del DOM
 - Peticiones AJAX y Fetch
 - Layouts con CSS Grid y Flexbox
+- **Containerización Docker** (2 proyectos)
+- **Gestión completa de recursos visuales**
 
 ### 🚧 En Desarrollo
 - Optimización de rendimiento
