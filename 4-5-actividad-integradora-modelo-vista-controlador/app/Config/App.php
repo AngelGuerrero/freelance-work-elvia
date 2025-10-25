@@ -17,7 +17,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    public string $baseURL = 'http://mi-sitio-web.local/elvia/4-5-actividad-integradora-modelo-vista-controlador/public/';
+    public string $baseURL = 'http://0.0.0.0:8080/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

@@ -1,0 +1,205 @@
+INFO - 2025-10-25 06:17:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-25 06:18:53 --> Undefined constant "CodeIgniter\Database\MySQLi\MYSQLI_STORE_RESULT"
+in SYSTEMPATH/Database/Database.php on line 139.
+ 1 SYSTEMPATH/Database/Database.php(56): CodeIgniter\Database\Database->initDriver('MySQLi', 'CodeIgniter\\Database\\MySQLi\\Connection', [...])
+ 2 SYSTEMPATH/Database/Config.php(82): CodeIgniter\Database\Database->load([...], 'default')
+ 3 SYSTEMPATH/Common.php(362): CodeIgniter\Database\Config::connect('default', true)
+ 4 SYSTEMPATH/Database/MigrationRunner.php(151): db_connect(null)
+ 5 SYSTEMPATH/Config/Services.php(411): CodeIgniter\Database\MigrationRunner->__construct(null, null)
+ 6 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::migrations(Object(Config\Migrations), null, false)
+ 7 SYSTEMPATH/Config/BaseService.php(193): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+ 8 SYSTEMPATH/Config/Services.php(406): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+ 9 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::migrations()
+10 SYSTEMPATH/Commands/Database/MigrateStatus.php(82): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+11 SYSTEMPATH/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateStatus->run([])
+12 SYSTEMPATH/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:status', [])
+13 ROOTPATH/spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-10-25 06:21:08 --> Undefined constant "CodeIgniter\Database\MySQLi\MYSQLI_STORE_RESULT"
+in SYSTEMPATH/Database/Database.php on line 139.
+ 1 SYSTEMPATH/Database/Database.php(56): CodeIgniter\Database\Database->initDriver('MySQLi', 'CodeIgniter\\Database\\MySQLi\\Connection', [...])
+ 2 SYSTEMPATH/Database/Config.php(82): CodeIgniter\Database\Database->load([...], 'default')
+ 3 SYSTEMPATH/Common.php(362): CodeIgniter\Database\Config::connect('default', true)
+ 4 SYSTEMPATH/Database/MigrationRunner.php(151): db_connect(null)
+ 5 SYSTEMPATH/Config/Services.php(411): CodeIgniter\Database\MigrationRunner->__construct(null, null)
+ 6 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::migrations(Object(Config\Migrations), null, false)
+ 7 SYSTEMPATH/Config/BaseService.php(193): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+ 8 SYSTEMPATH/Config/Services.php(406): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+ 9 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::migrations()
+10 SYSTEMPATH/Commands/Database/MigrateStatus.php(82): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+11 SYSTEMPATH/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateStatus->run([])
+12 SYSTEMPATH/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:status', [])
+13 ROOTPATH/spark(97): CodeIgniter\CLI\Console->run()
+ERROR - 2025-10-25 06:21:56 --> Error connecting to the database: CodeIgniter\Database\Exceptions\DatabaseException: SQLite3 error: Unable to open database: unable to open database file in /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php:92
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php(59): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(574): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#4 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2025-10-25 06:22:24 --> Error connecting to the database: CodeIgniter\Database\Exceptions\DatabaseException: SQLite3 error: Unable to open database: unable to open database file in /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php:92
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php(59): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(574): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#4 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2025-10-25 06:22:42 --> Error connecting to the database: CodeIgniter\Database\Exceptions\DatabaseException: SQLite3 error: Unable to open database: unable to open database file in /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php:92
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php(59): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(574): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#4 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2025-10-25 06:22:55 --> Error connecting to the database: CodeIgniter\Database\Exceptions\DatabaseException: SQLite3 error: Unable to open database: unable to open database file in /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php:92
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php(59): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(574): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#4 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2025-10-25 06:23:23 --> Error connecting to the database: CodeIgniter\Database\Exceptions\DatabaseException: SQLite3 error: Unable to open database: unable to open database file in /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php:92
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php(59): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(574): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#4 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2025-10-25 06:23:29 --> Error connecting to the database: CodeIgniter\Database\Exceptions\DatabaseException: SQLite3 error: Unable to open database: unable to open database file in /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php:92
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php(59): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(574): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#4 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(648): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/MigrateStatus.php(112): CodeIgniter\Database\MigrationRunner->getHistory('')
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateStatus->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:status', Array)
+#10 /var/www/html/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+CRITICAL - 2025-10-25 06:23:29 --> Unable to connect to the database.
+Main connection [SQLite3]: SQLite3 error: Unable to open database: unable to open database file
+in SYSTEMPATH/Database/BaseConnection.php on line 427.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(59): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseConnection.php(574): CodeIgniter\Database\SQLite3\Connection->initialize()
+ 3 SYSTEMPATH/Database/BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" FROM "SQLITE_MASTER" WHERE "TYPE" = \'table\' AND "NAME" NOT LIKE \'sqlite!_%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH/Database/BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+ 5 SYSTEMPATH/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+ 6 SYSTEMPATH/Database/MigrationRunner.php(648): CodeIgniter\Database\MigrationRunner->ensureTable()
+ 7 SYSTEMPATH/Commands/Database/MigrateStatus.php(112): CodeIgniter\Database\MigrationRunner->getHistory('')
+ 8 SYSTEMPATH/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateStatus->run([])
+ 9 SYSTEMPATH/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:status', [])
+10 ROOTPATH/spark(97): CodeIgniter\CLI\Console->run()
+ERROR - 2025-10-25 06:23:51 --> Error connecting to the database: CodeIgniter\Database\Exceptions\DatabaseException: SQLite3 error: Unable to open database: unable to open database file in /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php:92
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/SQLite3/Connection.php(59): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(574): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#4 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#5 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /var/www/html/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /var/www/html/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /var/www/html/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /var/www/html/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /var/www/html/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+CRITICAL - 2025-10-25 06:25:07 --> Undefined constant "CodeIgniter\Database\MySQLi\MYSQLI_STORE_RESULT"
+in SYSTEMPATH/Database/Database.php on line 139.
+ 1 SYSTEMPATH/Database/Database.php(56): CodeIgniter\Database\Database->initDriver('MySQLi', 'CodeIgniter\\Database\\MySQLi\\Connection', [...])
+ 2 SYSTEMPATH/Database/Config.php(82): CodeIgniter\Database\Database->load([...], 'default')
+ 3 SYSTEMPATH/Common.php(362): CodeIgniter\Database\Config::connect('default', true)
+ 4 SYSTEMPATH/Database/MigrationRunner.php(151): db_connect(null)
+ 5 SYSTEMPATH/Config/Services.php(411): CodeIgniter\Database\MigrationRunner->__construct(null, null)
+ 6 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::migrations(Object(Config\Migrations), null, false)
+ 7 SYSTEMPATH/Config/BaseService.php(193): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+ 8 SYSTEMPATH/Config/Services.php(406): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+ 9 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::migrations()
+10 SYSTEMPATH/Commands/Database/MigrateStatus.php(82): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+11 SYSTEMPATH/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateStatus->run([])
+12 SYSTEMPATH/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:status', [])
+13 ROOTPATH/spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-10-25 06:25:37 --> Undefined constant "CodeIgniter\Database\MySQLi\MYSQLI_STORE_RESULT"
+in SYSTEMPATH/Database/Database.php on line 139.
+ 1 SYSTEMPATH/Database/Database.php(56): CodeIgniter\Database\Database->initDriver('MySQLi', 'CodeIgniter\\Database\\MySQLi\\Connection', [...])
+ 2 SYSTEMPATH/Database/Config.php(82): CodeIgniter\Database\Database->load([...], 'default')
+ 3 SYSTEMPATH/Common.php(362): CodeIgniter\Database\Config::connect('default', true)
+ 4 SYSTEMPATH/Database/MigrationRunner.php(151): db_connect(null)
+ 5 SYSTEMPATH/Config/Services.php(411): CodeIgniter\Database\MigrationRunner->__construct(null, null)
+ 6 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::migrations(Object(Config\Migrations), null, false)
+ 7 SYSTEMPATH/Config/BaseService.php(193): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+ 8 SYSTEMPATH/Config/Services.php(406): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+ 9 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::migrations()
+10 SYSTEMPATH/Commands/Database/Migrate.php(69): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+11 SYSTEMPATH/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run([])
+12 SYSTEMPATH/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', [])
+13 ROOTPATH/spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-10-25 06:25:51 --> Undefined constant "CodeIgniter\Database\MySQLi\MYSQLI_STORE_RESULT"
+in SYSTEMPATH/Database/Database.php on line 139.
+ 1 SYSTEMPATH/Database/Database.php(56): CodeIgniter\Database\Database->initDriver('MySQLi', 'CodeIgniter\\Database\\MySQLi\\Connection', [...])
+ 2 SYSTEMPATH/Database/Config.php(82): CodeIgniter\Database\Database->load([...], 'default')
+ 3 SYSTEMPATH/Common.php(362): CodeIgniter\Database\Config::connect('default', true)
+ 4 SYSTEMPATH/Database/MigrationRunner.php(151): db_connect(null)
+ 5 SYSTEMPATH/Config/Services.php(411): CodeIgniter\Database\MigrationRunner->__construct(null, null)
+ 6 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::migrations(Object(Config\Migrations), null, false)
+ 7 SYSTEMPATH/Config/BaseService.php(193): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+ 8 SYSTEMPATH/Config/Services.php(406): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+ 9 SYSTEMPATH/Config/BaseService.php(252): CodeIgniter\Config\Services::migrations()
+10 SYSTEMPATH/Commands/Database/Migrate.php(69): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+11 SYSTEMPATH/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run([])
+12 SYSTEMPATH/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', [])
+13 ROOTPATH/spark(97): CodeIgniter\CLI\Console->run()
+INFO - 2025-10-25 06:36:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:37:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:37:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:39:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:49:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:52:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:52:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:52:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:52:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:53:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:53:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:53:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:53:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:53:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:53:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:53:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:55:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-25 06:55:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

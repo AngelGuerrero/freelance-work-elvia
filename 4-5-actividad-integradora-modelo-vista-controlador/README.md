@@ -1,62 +1,245 @@
-# CodeIgniter 4 Application Starter
+# 4-5 Actividad Integradora - Modelo Vista Controlador
 
-## What is CodeIgniter?
+## Descripción
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Aplicación web desarrollada con CodeIgniter 4 que implementa el patrón de diseño MVC (Modelo-Vista-Controlador) para la gestión de usuarios con sistema de autenticación.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Tecnologías utilizadas
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- **Framework**: CodeIgniter 4.3.5
+- **Base de datos**: MySQL 8.0
+- **Servidor web**: PHP 8.2 Built-in Server
+- **Contenedorización**: Docker & Docker Compose
+- **Gestión de dependencias**: Composer
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+## Requisitos previos
 
-## Installation & updates
+- Docker Desktop instalado
+- Docker Compose instalado
+- Puerto 8000 disponible (aplicación web)
+- Puerto 3306 disponible (MySQL)
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## Instalación y configuración
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### 1. Clonar el repositorio y navegar al directorio
 
-## Setup
+```bash
+cd 4-5-actividad-integradora-modelo-vista-controlador
+```
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### 2. Construir las imágenes Docker
 
-## Important Change with index.php
+```bash
+docker compose build --no-cache
+```
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+### 3. Iniciar los contenedores
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+```bash
+docker compose up -d
+```
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Esto iniciará dos servicios:
+- `php_app_integradora_4_5`: Servidor PHP con CodeIgniter 4
+- `mysql_integradora_4_5`: Base de datos MySQL
 
-## Repository Management
+### 4. Verificar el estado de los contenedores
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```bash
+docker compose ps
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+### 5. Instalar dependencias de Composer (si es necesario)
 
-## Server Requirements
+```bash
+docker compose exec php composer install
+```
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+### 6. Verificar las migraciones de base de datos
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+```bash
+docker compose exec php php spark migrate:status
+```
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+Si las migraciones no se han ejecutado, ejecutar:
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+```bash
+docker compose exec php php spark migrate
+```
+
+## Acceso a la aplicación
+
+- **URL de la aplicación**: http://localhost:8000
+- **MySQL**: localhost:3306
+  - Usuario: `root`
+  - Contraseña: `root`
+  - Base de datos: `elvia`
+
+## Configuración
+
+### Archivo .env
+
+El archivo `.env` contiene la configuración principal:
+
+```env
+# Entorno
+CI_ENVIRONMENT = development
+
+# URL base de la aplicación
+app.baseURL = 'http://localhost:8000/'
+
+# Configuración de base de datos
+database.default.hostname = mysql_integradora_4_5
+database.default.database = elvia
+database.default.username = root
+database.default.password = root
+database.default.DBDriver = MySQLi
+
+# Clave de encriptación (generada con php spark key:generate)
+encryption.key = hex2bin:5530ef5d2ac0791f5f4b4927b4c09a4f5b1b834cc00f8a39466d2d853314b1c0
+```
+
+## Comandos útiles de CodeIgniter 4
+
+### Migraciones
+
+```bash
+# Ver estado de migraciones
+docker compose exec php php spark migrate:status
+
+# Ejecutar migraciones
+docker compose exec php php spark migrate
+
+# Revertir última migración
+docker compose exec php php spark migrate:rollback
+```
+
+### Generadores de código
+
+```bash
+# Crear controlador
+docker compose exec php php spark make:controller NombreController
+
+# Crear modelo
+docker compose exec php php spark make:model NombreModel
+
+# Crear migración
+docker compose exec php php spark make:migration NombreMigracion
+```
+
+### Utilidades
+
+```bash
+# Listar todos los comandos disponibles
+docker compose exec php php spark list
+
+# Limpiar caché
+docker compose exec php php spark cache:clear
+
+# Generar nueva clave de encriptación
+docker compose exec php php spark key:generate
+```
+
+## Gestión de contenedores Docker
+
+```bash
+# Iniciar contenedores
+docker compose up -d
+
+# Detener contenedores
+docker compose down
+
+# Ver logs de PHP
+docker compose logs php
+
+# Ver logs de MySQL
+docker compose logs mysql
+
+# Reiniciar un servicio específico
+docker compose restart php
+
+# Acceder al contenedor PHP
+docker compose exec php bash
+
+# Acceder al contenedor MySQL
+docker compose exec mysql bash
+```
+
+## Estructura del proyecto
+
+```
+4-5-actividad-integradora-modelo-vista-controlador/
+├── app/
+│   ├── Config/          # Archivos de configuración
+│   │   ├── App.php      # Configuración general
+│   │   ├── Database.php # Configuración de base de datos
+│   │   └── Routes.php   # Definición de rutas
+│   ├── Controllers/     # Controladores MVC
+│   ├── Models/          # Modelos de datos
+│   ├── Views/           # Vistas (templates)
+│   └── Database/
+│       └── Migrations/  # Migraciones de base de datos
+├── public/              # Directorio público (DocumentRoot)
+│   └── index.php        # Punto de entrada
+├── writable/            # Directorio con permisos de escritura
+│   ├── cache/           # Caché de la aplicación
+│   ├── logs/            # Logs de la aplicación
+│   └── session/         # Datos de sesión
+├── .env                 # Variables de entorno
+├── docker-compose.yml   # Configuración de Docker Compose
+├── Dockerfile           # Imagen Docker personalizada
+└── composer.json        # Dependencias PHP
+```
+
+## Extensiones PHP instaladas
+
+El contenedor Docker incluye las siguientes extensiones PHP:
+
+- `pdo` - Para operaciones de base de datos
+- `pdo_mysql` - Driver PDO para MySQL
+- `mysqli` - Driver MySQLi para CodeIgniter
+- `intl` - Internacionalización
+- `opcache` - Optimización de rendimiento
+- `sodium` - Funciones criptográficas modernas
+
+## Solución de problemas
+
+### La aplicación no carga
+
+```bash
+# Verificar que los contenedores estén corriendo
+docker compose ps
+
+# Ver logs de errores
+docker compose logs php
+
+# Reiniciar los servicios
+docker compose restart
+```
+
+### Error de conexión a base de datos
+
+```bash
+# Verificar que MySQL esté corriendo
+docker compose exec mysql mysql -u root -proot -e "SELECT 1"
+
+# Verificar las tablas creadas
+docker compose exec mysql mysql -u root -proot -e "USE elvia; SHOW TABLES;"
+```
+
+### Permisos de escritura
+
+```bash
+# Dar permisos a directorios writable
+docker compose exec php chmod -R 777 writable/
+```
+
+## Documentación adicional
+
+- [Documentación oficial de CodeIgniter 4](https://codeigniter4.github.io/userguide/)
+- [Guía de instalación de CodeIgniter 4](https://codeigniter.com/user_guide/installation/running.html)
+- [Docker Documentation](https://docs.docker.com/)
+
+## Licencia
+
+Este proyecto es parte de una actividad académica integradora.

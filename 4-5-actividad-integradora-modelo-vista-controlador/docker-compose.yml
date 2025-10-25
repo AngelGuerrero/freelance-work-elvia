@@ -1,0 +1,40 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_app_integradora_4_5
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8000 -t public
+    environment:
+      - PHP_DISPLAY_ERRORS=On
+    depends_on:
+      - mysql
+    networks:
+      - php_network
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_integradora_4_5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: elvia
+      MYSQL_USER: elvia_user
+      MYSQL_PASSWORD: elvia_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - php_network
+
+networks:
+  php_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
